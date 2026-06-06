@@ -1,0 +1,13 @@
+services:
+  qa-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: py-qa-engine-dev
+    volumes:
+      # Mount current directory to container's workspace
+      - .:/usr/src/app
+    env_file:
+      - .env
+    # Keep container alive so VS Code can attach to it
+    command: sleep infinity
